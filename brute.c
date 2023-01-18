@@ -1,5 +1,5 @@
 /**
- * Print all possible combinations of a byte
+ * Print all possible combinations of 255 bytes.
 */
 #include <stdio.h>
 
