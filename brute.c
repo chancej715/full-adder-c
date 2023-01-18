@@ -5,8 +5,12 @@
 
 int main (void)
 {
-    int bin_array[8] = {0, 0, 0, 0, 0, 0, 0, 0};
     int array_length = 8; // Number of bits
+    int bin_array[array_length];
+
+    // Initialize the array with all 0s
+    for (int i = 0; i < array_length; i++)
+        bin_array[i] = 0;
 
     int offset = 0;
 
