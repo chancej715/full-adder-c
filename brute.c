@@ -1,43 +1,32 @@
-/**
- * Print all possible combinations of 255 bytes.
-*/
 #include <stdio.h>
 
-int main (void)
+int main(void)
 {
-    // Max 255 bytes in a filename * 8 bits per byte = 2040 bits total
-    int array_length = 2040; 
-    int bin_array[array_length];
+    // Logic gates
+    int and(int a, int b) { return a & b; }
+    int xor(int a, int b) { return a ^ b; }
 
-    // Initialize array
-    for (int i = 0; i < array_length; i++)
-        bin_array[i] = 0;
+    // Half adder
+    int half_adder_out[2]; // sum, carry
 
-    int offset = 0;
-
-    for (int i = 0; i < array_length; i++)
+    void half_adder(int a, int b)
     {
-        for (int j = 0; j < array_length - offset; j++)
-        {
-            if (!bin_array[j])
-            {
-                bin_array[j] = 1;
+        int sum = xor(a, b);
+        int carry = and(a, b);
 
-                if (j != 0 && bin_array[j-1] == 1)
-                    bin_array[j-1] = 0;
+        half_adder_out[0] = sum;
+        half_adder_out[1] = carry;
+    }
 
-                if (j == (array_length-1)-offset)
-                    offset += 1;
-            }
+    // Full adder
+    int full_adder_out[2]; // sum, carry
 
-            // Print array
-            for (int k = 0; k < array_length; k++)
-            {
-                printf("%i", bin_array[k]);
-                
-            }
-            printf("\n");
-        }
+    void full_adder(int a, int b, int carry_in)
+    {
+        // First half adder
+        
+
+        // Second half adder
     }
 
     return 0;
